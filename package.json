@@ -14,6 +14,7 @@
   "license": "Apache-2.0",
   "dependencies": {},
   "devDependencies": {
+    "cordova-android": "^10.1.1",
     "cordova-plugin-sip": "git+https://github.com/sezerkorkmaz/cordova-plugin-sip.git",
     "cordova-plugin-whitelist": "^1.3.5"
   },
@@ -22,6 +23,8 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-sip": {}
     },
-    "platforms": []
+    "platforms": [
+      "android"
+    ]
   }
 }

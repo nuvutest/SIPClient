@@ -1,0 +1,77 @@
+{
+  "_from": "git+https://github.com/sezerkorkmaz/cordova-plugin-sip.git",
+  "_id": "cordova-plugin-sip@1.1.3",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-sip",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/sezerkorkmaz/cordova-plugin-sip",
+    "rawSpec": "https://github.com/sezerkorkmaz/cordova-plugin-sip",
+    "saveSpec": "git+https://github.com/sezerkorkmaz/cordova-plugin-sip.git",
+    "fetchSpec": "https://github.com/sezerkorkmaz/cordova-plugin-sip.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "git+https://github.com/sezerkorkmaz/cordova-plugin-sip.git#2d1dddd0c703864e5533aab79f11697ff7562581",
+  "_spec": "https://github.com/sezerkorkmaz/cordova-plugin-sip",
+  "_where": "D:\\demo\\prueba",
+  "author": {
+    "name": "AIM Services"
+  },
+  "bugs": {
+    "url": "https://github.com/sezerkorkmaz/cordova-plugin-sip/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-sip",
+    "platforms": [
+      "android",
+      "ios",
+      "wp8"
+    ]
+  },
+  "deprecated": false,
+  "description": "<h2>SIP plugin for Cordova & Phonegap Apps (IOS and Android)</h2>",
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=4.0.0-dev"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">=4.0.0-dev"
+    },
+    {
+      "name": "cordova-wp8",
+      "version": ">=4.0.0-dev"
+    }
+  ],
+  "homepage": "https://github.com/sezerkorkmaz/cordova-plugin-sip#readme",
+  "keywords": [
+    "sip",
+    "cordova",
+    "phonegap",
+    "linphone",
+    "liblinphone",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-wp8"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "cordova-plugin-sip",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sezerkorkmaz/cordova-plugin-sip.git"
+  },
+  "scripts": {
+    "version": "node ./bump-version.js && git add -A plugin.xml"
+  },
+  "version": "1.1.3"
+}

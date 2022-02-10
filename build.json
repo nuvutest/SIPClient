@@ -1,0 +1,20 @@
+{
+    "android": {
+        "debug": {
+            "keystore": "android.keystore",
+            "storePassword": "nuvu",
+            "alias": "nuvu",
+            "password" : "nuvu",
+            "keystoreType": "",
+            "packageType": "apk"
+        },
+        "release": {
+            "keystore": "android.keystore",
+            "storePassword": "nuvu",
+            "alias": "nuvu",
+            "password" : "nuvu",
+            "keystoreType": "",
+            "packageType": "apk"
+        }
+    }
+}

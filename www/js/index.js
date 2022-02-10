@@ -1,3 +1,11 @@
+// --------------------------------------------------------------------------
+
+var SERVER = '18.234.196.143'; 
+var PORT = '5060';
+var PASS = 'password1';
+
+// --------------------------------------------------------------------------
+
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function showB(p) {
@@ -10,24 +18,30 @@ function showB(p) {
 }
 
 
+
 function onDeviceReady() {
 
-    var posibles = ["8080", "8081", "8082", "8083"];
+    SERVER = prompt("enter ip server: ", SERVER);
+    PORT = prompt("enter port server: ", PORT);
+
+    var posibles = ["800", "8080", "8081", "8082", "8083", "8084", "8085"];
     var ext = null;
 
     do {
-        ext = prompt("enter your extension number: \n" + posibles);
+        ext = prompt("enter your extension number: \n" + posibles, '8080');
     } while (!posibles.includes(ext));
+
+    PASS = prompt("password : ", PASS);
 
     // Cordova is now initialized. Have fun!
     var sipManager = {
         extension: ext,
         register: function () {
-            $("#msg").html("Connecting " + sipManager.extension);
+            $("#msg").html("Connecting " +  SERVER + ':' + PORT);
 
             showB("#p_conectar");
 
-            cordova.plugins.sip.login(sipManager.extension, 'password1', '3.215.229.61:5060', function (e) {
+            cordova.plugins.sip.login(sipManager.extension, PASS, SERVER + ':' + PORT, function (e) {
 
                 $("#msg").html(e);
 
@@ -36,7 +50,6 @@ function onDeviceReady() {
                     showB("#p_llamar");
                     sipManager.listen();
                 } else {
-                    $("#msg").html("Failed to Connect");
                     showB("#p_error");
                 }
 
@@ -48,7 +61,7 @@ function onDeviceReady() {
 
             $("#msg").html("Calling");
             showB("#p_conectar");
-            cordova.plugins.sip.call('sip:'+ ext +'@3.215.229.61', sipManager.extension, sipManager.events, sipManager.events)
+            cordova.plugins.sip.call('sip:'+ ext +'@' + SERVER, sipManager.extension, sipManager.events, sipManager.events)
         },
         listen: function () {
             cordova.plugins.sip.listenCall(sipManager.events, sipManager.events);

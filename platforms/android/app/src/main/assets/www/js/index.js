@@ -33,7 +33,6 @@ function onDeviceReady() {
 
     PASS = prompt("password : ", PASS);
 
-    // Cordova is now initialized. Have fun!
     var sipManager = {
         extension: ext,
         register: function () {

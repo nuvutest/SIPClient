@@ -24,7 +24,7 @@ function onDeviceReady() {
     SERVER = prompt("enter ip server: ", SERVER);
     PORT = prompt("enter port server: ", PORT);
 
-    var posibles = ["800", "8080", "8081", "8082", "8083", "8084", "8085"];
+    var posibles = ["8080", "8081", "8082", "8083"];
     var ext = null;
 
     do {
@@ -54,6 +54,10 @@ function onDeviceReady() {
 
             }, function (e) { alert(e) })
         },
+        logout: function(){
+            var closeApp = function(){  navigator.app.exitApp(); };
+            cordova.plugins.sip.logout(closeApp, closeApp);
+        },
         call: function () {
 
             var ext = prompt("Extension number to call");
@@ -71,7 +75,8 @@ function onDeviceReady() {
             cordova.plugins.sip.hangup(function (e) { console.log(e) }, function (e) { console.log(e) })
         },
         events: function (e) {
-            console.log(e);
+
+            $("#msg").html(e);
 
             showB("#p_conectar");
 
@@ -84,34 +89,26 @@ function onDeviceReady() {
                 }
             }
             if (e == 'Connected') {
-                $("#msg").html("Active call");
                 showB("#p_colgar");
                 sipManager.listen();
             }
             if (e == 'Error') {
-                $("#msg").html("Error");
                 showB("#p_llamar");
                 sipManager.listen();
             }
             if (e == 'End') {
-                $("#msg").html("Call ended");
                 showB("#p_conectar");
                 sipManager.listen();
 
                 window.setTimeout(function () {
-                    $("#msg").html("Ready to Call");
                     showB("#p_llamar");
-
                 }, 2000);
             }
-
 
         }
     }
 
-
     sipManager.register();
-
 
     $("#p_llamar").click(function () {
         sipManager.call();
@@ -121,5 +118,13 @@ function onDeviceReady() {
         sipManager.hangup();
     });
 
+    $("#p_close").click(function () {
+        sipManager.logout();
+    });
+
+    document.addEventListener("backbutton", function () {
+        alert('Back Button Disabled');
+        console.log('Back Button Disabled');
+    }, false);
 
 }

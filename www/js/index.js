@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------
 
-var SERVER = '18.234.196.143'; 
+var SERVER = '3.215.229.61';
 var PORT = '5060';
 var PASS = 'password1';
 
@@ -55,7 +55,7 @@ function onDeviceReady() {
             }, function (e) { alert(e) })
         },
         logout: function(){
-            var closeApp = function(){  navigator.app.exitApp(); };
+            var closeApp = function(e){   $("#msg").html(e);  window.setTimeout( () => {navigator.app.exitApp();}, 500); };
             cordova.plugins.sip.logout(closeApp, closeApp);
         },
         call: function () {
